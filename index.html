@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>NASA Bioscience Lab Dashboard - Space Apps Challenge 2025</title>
+    <meta name="description" content="Explore 608 NASA bioscience publications and experiments supporting Moon and Mars missions. Search, analyze, and discover space biology research.">
+    <meta name="keywords" content="NASA, bioscience, space biology, microgravity, astronaut health, space exploration, Mars mission, Moon mission">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="NASA Bioscience Lab Dashboard">
+    <meta property="og:description" content="Explore NASA bioscience research supporting space exploration missions">
+    
+    <!-- Twitter -->
+    <meta name="twitter:title" content="NASA Bioscience Lab Dashboard">
+    <meta name="twitter:description" content="Explore NASA bioscience research supporting space exploration missions">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #06b6d4;
+            --accent-color: #8b5cf6;
+            --bg-dark: #323232;
+            --bg-darker: #2b2b2b;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --card-bg: rgba(50, 50, 50, 0.9);
+            --border-color: rgba(148, 163, 184, 0.3);
+        }
+    }
+
+    @layer base {
+        body {
+            background-color: #2b2b2b !important;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .cosmic-bg {
+            background: radial-gradient(ellipse at top, rgba(79, 70, 229, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+    }
+
+    @layer components {
+        .btn-primary {
+            @apply bg-[var(--primary-color)] hover:bg-opacity-90 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105;
+        }
+        
+        .btn-secondary {
+            @apply bg-[var(--secondary-color)] hover:bg-opacity-90 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105;
+        }
+        
+        .card {
+            @apply bg-[var(--card-bg)] backdrop-blur-sm border border-[var(--border-color)] rounded-xl p-6 transition-all duration-300 hover:shadow-2xl;
+        }
+        
+        .card:hover {
+            box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.2);
+        }
+        
+        .tool-card {
+            @apply card cursor-pointer transform hover:scale-105 hover:border-[var(--primary-color)] hover:bg-opacity-90;
+        }
+        
+        .nav-link {
+            @apply text-[var(--text-gray)] hover:text-[var(--text-light)] transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-white/10;
+        }
+        
+        .modal {
+            @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4;
+        }
+        
+        .modal-inner {
+            @apply bg-[var(--bg-dark)] border border-[var(--border-color)] rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative;
+        }
+    }
+
+    @layer utilities {
+        .glow {
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+    </style>
+</head>
+<body class="cosmic-bg">
+    <div id="root"></div>
+    
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/Hero.js"></script>
+    <script type="text/babel" src="components/RecentStudies.js"></script>
+    <script type="text/babel" src="components/ResearchTools.js"></script>
+    <script type="text/babel" src="components/Footer.js"></script>
+    <script type="text/babel" src="utils/sampleData.js"></script>
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>
